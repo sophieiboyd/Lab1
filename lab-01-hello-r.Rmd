@@ -1,7 +1,7 @@
 ---
-title: "Lab 01 - Hello R" test change
-author: "Insert your name here"
-date: "Insert date here"
+title: "Lab 01 - Hello R" 
+author: "Sophie Boyd"
+date: "1-14-26"
 output: 
   html_document: 
     fig_height: 4
