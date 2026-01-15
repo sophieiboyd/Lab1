@@ -69,15 +69,23 @@ Again, on its own this correlation might be interpreted as a weak negative relat
 
 ### Exercise 4
 
-Add your code and narrative to complete this exercise. Use the conventions from the previous exercises to name your chunks and organize your work.
+Visualizing the circle data:
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-```{r}
+Correlation between `x` and `y` in the circle dataset:
 
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
+The correlation of -.068 between x and y in the circle dataset is very close to the correlation coefficients produced by both the dino and star datasets (both about -.06), once again demonstrating that very different datasets can produce similar summary statistics. 
 
 ### Exercise 5
 
