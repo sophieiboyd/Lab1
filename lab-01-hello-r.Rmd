@@ -24,9 +24,7 @@ The file has 1846 rows and 3 columns. The variables are dataset (which dataset t
 
 ### Exercise 2
 
-The answers for this exercise are already provided to help guide you. Clean up the narrative to reflect what you want to submit. Let’s break it into steps:
-
-First, let's plot the data in the dino dataset:
+Visualizing the dino data:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -36,14 +34,14 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-Next, let's calculate the correlation between `x` and `y` in this dataset:
+Correlation between `x` and `y` in the dino dataset:
 
 ```{r cor-dino}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-Once you’ve cleaned up the text, add your own explanation or observations here!
 
+On its own, the correlation between x and y might be interpreted as a weak, negative relationship between the two variables. However, because we plotted the data, we can see that x and y do not have a linear relationship. Rather, the data points make the shape of a dinosaur! This exercise highlights the importance of plotting/visualizing your data before conducting analyses and drawing conclusions. 
 
 ### Exercise 3
 
