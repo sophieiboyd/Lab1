@@ -561,27 +561,23 @@ datasets:</h4>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">%&gt;%</span></span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(x, y)) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="dv">13</span>)</span></code></pre></div>
-<pre><code>## # A tibble:
-## #   13 × 2
-##    dataset   
-##    &lt;chr&gt;     
-##  1 away      
-##  2 bullseye  
-##  3 circle    
-##  4 dino      
-##  5 dots      
-##  6 h_lines   
-##  7 high_lines
-##  8 slant_down
-##  9 slant_up  
-## 10 star      
-## 11 v_lines   
-## 12 wide_lines
-## 13 x_shape   
-## # ℹ 1 more
-## #   variable:
-## #   r &lt;dbl&gt;</code></pre>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="dv">13</span> <span class="sc">*</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 13 × 2
+##    dataset          r
+##    &lt;chr&gt;        &lt;dbl&gt;
+##  1 away       -0.0641
+##  2 bullseye   -0.0686
+##  3 circle     -0.0683
+##  4 dino       -0.0645
+##  5 dots       -0.0603
+##  6 h_lines    -0.0617
+##  7 high_lines -0.0685
+##  8 slant_down -0.0690
+##  9 slant_up   -0.0686
+## 10 star       -0.0630
+## 11 v_lines    -0.0694
+## 12 wide_lines -0.0666
+## 13 x_shape    -0.0656</code></pre>
 <p>Across all 13 datasets contained in datasaurus, we see that plotting
 x and y produces drastically different patterns, but the correlations
 between x and y are nearly identical across the datasets. The main

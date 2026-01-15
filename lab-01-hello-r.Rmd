@@ -41,7 +41,7 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-On its own, the correlation between x and y might be interpreted as a weak, negative relationship between the two variables. However, because we plotted the data, we can see that x and y do not have a linear relationship. Rather, the data points make the shape of a dinosaur! This exercise highlights the importance of plotting/visualizing your data before conducting analyses and drawing conclusions. 
+On its own, the correlation between x and y might be interpreted as a weak, negative relationship between the two variables. However, because we plotted the data, we can see that x and y do not have a linear relationship. Rather, the data points make the shape of a dinosaur! This exercise highlights the importance of plotting/visualizing your data before conducting analyses and drawing conclusions.
 
 ### Exercise 3
 
@@ -57,14 +57,13 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
 
 As with the dino data, x and y do not have a linear relationship. Here, the plotted data takes the shape of a star.
 
-
-
 #### Correlation between `x` and `y` in the star dataset:
 
 ```{r cor-star}
 star_data %>%
   summarize(r = cor(x, y))
 ```
+
 Again, on its own this correlation might be interpreted as a weak negative relationship between x and y, but it should not be interpreted this way because the plot does not show a linear relationship. The correlation coefficient is very close to the r value that we obtained from the dino data (both are about -.06), demonstrating that very different datasets may produce similar summary statistics (as the creator intended!).
 
 ### Exercise 4
@@ -85,7 +84,8 @@ ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
 circle_data %>%
   summarize(r = cor(x, y))
 ```
-The correlation of -.068 between x and y in the circle dataset is very close to the correlation coefficients produced by both the dino and star datasets (both about -.06), once again demonstrating that very different datasets can produce similar summary statistics. 
+
+The correlation of -.068 between x and y in the circle dataset is very close to the correlation coefficients produced by both the dino and star datasets (both about -.06), once again demonstrating that very different datasets can produce similar summary statistics.
 
 ### Exercise 5
 
@@ -104,8 +104,7 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
 datasaurus_dozen %>%
   group_by(dataset) %>%
   summarize(r = cor(x, y)) %>%
-  print(13)
+  print(13 * 2)
 ```
+
 Across all 13 datasets contained in datasaurus, we see that plotting x and y produces drastically different patterns, but the correlations between x and y are nearly identical across the datasets. The main takeaway from lab 1: always plot your data first! Data visualization allows us to determine the appropriate analyses to conduct and to draw responsible conclusions from our analyses.
-
-
