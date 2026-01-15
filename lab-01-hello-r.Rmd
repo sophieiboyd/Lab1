@@ -20,7 +20,7 @@ data("datasaurus_dozen")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+The file has 1846 rows and 3 columns. The variables are dataset (which dataset the data come from), x (x-values), and y(y-values).
 
 ### Exercise 2
 
