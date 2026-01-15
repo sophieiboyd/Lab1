@@ -20,7 +20,7 @@ data("datasaurus_dozen")
 
 ### Exercise 1
 
-The file has 1846 rows and 3 columns. The variables are dataset (which dataset the data come from), x (x-values), and y(y-values).
+The file has 1846 rows and 3 columns. The variables are dataset (which dataset the data come from), x (x-values), and y (y-values).
 
 ### Exercise 2
 
@@ -45,22 +45,27 @@ On its own, the correlation between x and y might be interpreted as a weak, nega
 
 ### Exercise 3
 
-This is your turn to write the code and narrative for the star dataset. Follow the same steps as above to complete the analysis. Don't forget to label your chunks appropriately!
+Visualizing the star data:
 
-Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient.
-To finish, clean up the narrative by removing these instructions.
+```{r plot-star, fig.height=3, fig.width=6}
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 
-```{r plot-star}
-
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some filler text, you should replace me with more meaningful text...
+As with the dino data, x and y do not have a linear relationship. Here, the plotted data takes the shape of a star.
+
+
+
+Correlation between `x` and `y` in the star dataset:
 
 ```{r cor-star}
-
+star_data %>%
+  summarize(r = cor(x, y))
 ```
-Add your explanation here—what did you notice?
-
+Again, on its own this correlation might be interpreted as a weak negative relationship between x and y, but it should not be interpreted this way because the plot does not show a linear relationship. The correlation coefficient is very close to the r value that we obtained from the dino data (both are about -.06), demonstrating that very different datasets may produce similar summary statistics (as the creator intended!).
 
 ### Exercise 4
 
