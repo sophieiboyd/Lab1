@@ -4,8 +4,8 @@ author: "Sophie Boyd"
 date: "1-14-26"
 output: 
   html_document: 
-    fig_height: 4
-    fig_width: 9
+    theme: cosmo
+    highlight: pygments
 ---
 
 ## Load packages and data
@@ -24,7 +24,7 @@ The file has 1846 rows and 3 columns. The variables are dataset (which dataset t
 
 ### Exercise 2
 
-Visualizing the dino data:
+#### Visualizing the dino data:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -34,7 +34,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-Correlation between `x` and `y` in the dino dataset:
+#### Correlation between `x` and `y` in the dino dataset:
 
 ```{r cor-dino}
 dino_data %>%
@@ -45,7 +45,7 @@ On its own, the correlation between x and y might be interpreted as a weak, nega
 
 ### Exercise 3
 
-Visualizing the star data:
+#### Visualizing the star data:
 
 ```{r plot-star, fig.height=3, fig.width=6}
 star_data <- datasaurus_dozen %>%
@@ -59,7 +59,7 @@ As with the dino data, x and y do not have a linear relationship. Here, the plot
 
 
 
-Correlation between `x` and `y` in the star dataset:
+#### Correlation between `x` and `y` in the star dataset:
 
 ```{r cor-star}
 star_data %>%
@@ -69,7 +69,7 @@ Again, on its own this correlation might be interpreted as a weak negative relat
 
 ### Exercise 4
 
-Visualizing the circle data:
+#### Visualizing the circle data:
 
 ```{r plot-circle, fig.height=3, fig.width=6}
 circle_data <- datasaurus_dozen %>%
@@ -79,7 +79,7 @@ ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-Correlation between `x` and `y` in the circle dataset:
+#### Correlation between `x` and `y` in the circle dataset:
 
 ```{r cor-circle}
 circle_data %>%
@@ -89,9 +89,23 @@ The correlation of -.068 between x and y in the circle dataset is very close to 
 
 ### Exercise 5
 
-This is your final exercise! Add code and narrative as needed. Be creative and show off what you’ve learned so far.
-Add code and narrative as needed.
+#### Visualizing all of the datasets together:
 
-To add additional R chunks, you can either type the backticks, curly braces, and the letter `r`, or use the "Insert Chunk" button above (the green C+ icon). Have fun!
+```{r plot-datasaurus, fig.height=6, fig.width=6}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+#### Correlations between `x` and `y` in all of the datasets:
+
+```{r cor-datasaurus}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
+Across all 13 datasets contained in datasaurus, we see that plotting x and y produces drastically different patterns, but the correlations between x and y are nearly identical across the datasets. The main takeaway from lab 1: always plot your data first! Data visualization allows us to determine the appropriate analyses to conduct and to draw responsible conclusions from our analyses.
 
 
